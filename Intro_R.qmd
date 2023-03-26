@@ -1,0 +1,388 @@
+---
+title: "`Introduction to R`"
+subtitle: "`Fernanda Alves Martins`  \n`Javier Martinez Arribas`"
+author: "```r format(Sys.time(), '%d %B, %Y')```"
+title-slide-attributes:
+    data-background-image: "Tropibio4.jpg"
+    data-background-size: cover
+    data-background-opacity: "0.4"
+format:
+  revealjs:
+    incremental: true
+    slide-number: true
+    format:
+      theme: dark
+      height: 900
+      width: 1600
+    chalkboard: 
+      buttons: true
+    preview-links: auto
+    logo: "Tropibio2.jpg"
+    css: styles.css
+    footer: <https://cibio-tropibio.pt/en/>
+---
+
+## What is R?
+
+**R** is a [programming language](https://en.wikipedia.org/wiki/Programming_language "Programming language") for [statistical computing](https://en.wikipedia.org/wiki/Statistical_computing "Statistical computing") and graphics supported by the R Core Team and the R Foundation for Statistical Computing. Created by statisticians [Ross Ihaka](https://en.wikipedia.org/wiki/Ross_Ihaka "Ross Ihaka") and [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician) "Robert Gentleman (statistician)"), R is used among [data miners](https://en.wikipedia.org/wiki/Data_mining "Data mining"), [bioinformaticians](https://en.wikipedia.org/wiki/Bioinformatics "Bioinformatics") and [statisticians](https://en.wikipedia.org/wiki/Statistician "Statistician") for [data analysis](https://en.wikipedia.org/wiki/Data_analysis "Data analysis") and developing [statistical software](https://en.wikipedia.org/wiki/Statistical_software "Statistical software").^[\[7\]](https://en.wikipedia.org/wiki/R_%28programming_language%29#cite_note-7)^ Users have created packages to augment the functions of the R language. (Wikipedia)
+
+## History
+
+R was started by professors [Ross Ihaka](https://en.wikipedia.org/wiki/Ross_Ihaka "Ross Ihaka") and [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician) "Robert Gentleman (statistician)") as a programming language to teach introductory statistics at the [University of Auckland](https://en.wikipedia.org/wiki/University_of_Auckland "University of Auckland").
+
+::: columns
+::: {.column width="50%"}
+![Ross Ihaka](Ross_Ihaka.jpg){width="400" height="300" fig-align="left"}
+:::
+
+::: {.column width="50%"}
+![Robert Gentleman](Rober_Gentleman.png){width="300" fig-align="left"}
+:::
+:::
+
+## CRAN
+
+The Comprehensive R Archive Network (CRAN) was founded in 1997 by Kurt Hornik and Fritz Leisch to host R's source code, executable files, documentation, and user-created packages. Its name and scope mimics the Comprehensive TeX Archive Network and the Comprehensive Perl Archive Network. CRAN originally had three mirrors and 12 contributed packages. In December 2022, it has 103 mirrors and 18,976 contributed packages.
+
+## Installing R
+
+You need to run 2 basics installations:
+
+-   R Cran (Binaries and source packages)
+
+<!-- -->
+
+-   R Studio (IDE) : <https://posit.co/download/rstudio-desktop/>
+
+::: {.fragment .fade-in-then-out}
+and after this, depending on the type of analysis you want to do ...
+:::
+
+## Installing CRAN packages
+
+-   CRAN is the official repository for R. All packages have been self-tested and conform to CRAN's code policy.
+
+-   First, you need to find the name of the package you want to install.
+
+-   You can research a topic by searching Google for something like: 'R Graphing Package' or 'R Time Series Package'.
+
+-   You can also use [CRAN Task Views](https://cran.r-project.org/web/views/), where you can find the most relevant R packages by topic.
+
+## Installing CRAN packages
+
+::: {.fragment .highlight-red}
+Be careful! The fact that a package is on CRAN does not mean that the methods are always well implemented, as there are no third party checks on this.
+:::
+
+::: {.fragment .fade-in-then-out}
+Let's install some packages ...
+:::
+
+## Function to install R packages
+
+Once you've decided which package to install, simply call the ***install.packages*** function with the package name enclosed in quoted parentheses. As an example, let's install the **calendR** package, which allows us to create monthly and yearly calendars, but you can try installing the package of your choice.
+
+After installation, you need to load the package if you want to access its features. To do this, you can use the ***library*** function specifying the package name with or without quotes.
+
+::: {.fragment .fade-in-then-out}
+``` r
+install.packages("calendR")
+library(calendR)
+```
+:::
+
+## Function to install R packages
+
+Once loaded, you can use the ***help*** function or **?** with the package name or the name of any function to see the documentation. You'll also find useful examples to understand how the package works.
+
+```{r echo=T,eval=F}
+# Help the main function of the package
+help("calendR")
+```
+
+Also, in case it's interesting, you can find out where the packages are installed by calling the ***.libPaths()*** function.
+
+```{r echo=T, eval=F}
+.libPaths() # Returns the installation directory
+```
+
+## Installing CRAN packages from the menu
+
+Alternatively, you can install R packages from the development environment menu.
+
+In RStudio, go to *Tools → Install packages...* and in the Install from option, select Repository (CRAN) and then specify the packages you want to install.
+
+In the R GUI, go to *Packages → Install package(s)...*, select a 'mirror' and install the package.
+
+## Installing R packages from a zip
+
+-   You may have downloaded a package in zip or tar.gz format.
+
+-   To install the package from a local zip file, simply call the ***install.packages*** function with the arguments repos = NULL and type = "source". Note that the file path must not contain spaces.
+
+::: {.fragment .fade-in-then-out}
+```{r echo=T, eval=F}
+install.packages("path\\package_name.extension",repos = NULL, 
+                 type = "source")
+
+```
+:::
+
+## Installing R packages from a zip
+
+You can also first configure the framework with the ***setwd*** function in the folder where the package file was downloaded and then install the package by specifying the name of the zip or tar.gz file.
+
+::: {.fragment .fade-in-then-out}
+```{r echo=T, eval=F}
+
+setwd("file_path")
+install.packages("path\\package_name.extension",repos = NULL, 
+                 type = "source")
+
+```
+:::
+
+## Installing R packages from a zip
+
+The last option is to use the menu. In RStudio, go to *Tools → Install packages* and in the Install from option, choose Package Archive File (.zip; .tar.gz) and select your file. In the R GUI, go to *Packages → Install package(s) from local files*.
+
+If you have the zip hosted at some URL, you can use the install.packages.zip function of the installr package. Note that you can also install CRAN packages (even older versions) this way.
+
+::: {.fragment .fade-in-then-out}
+```{r echo=T, eval=F}
+
+library(installr)
+install.packages.zip(
+"https://cran.r-project.org/bin/windows/contrib/r-release/calendR_1.0.zip")
+
+```
+:::
+
+## Install multiple packages at once
+
+If you need to install several packages at once without writing the same function over and over again, you can use the ***c()*** function inside the ***install.packages*** function. Note that you now need to use quotes to specify the package names.
+
+```{r echo=T, eval=F}
+install.packages(c("ggplot2", "dplyr"))
+```
+
+## Installing packages from alternative sources
+
+::: {.fragment .fade-in-then-out}
+Now you know how to install R packages from CRAN, but you should know that not all R packages are on CRAN for various reasons.\
+The main reason is that CRAN has a policy of requirements and code checks and some developers don't want to waste time fixing small details to meet them.\
+Other times there is a development version on GitHub of a CRAN package with functions under test.\
+In the following sections, you will learn how to install packages from other available sources.
+:::
+
+## Install R packages from GitHub or GitLab
+
+GitHub is a well-known code sharing platform. If you go to the page, you can search for R packages by using the search bar and typing something like: "plot package language: R" if you want to search for plot packages.
+
+The "language:R" part is a web browser command to restrict results to R code repositories. Suppose you want to download the development version of the ggplot2 package from GitHub. The URL address will be as follows:
+
+<https://github.com/tidyverse/ggplot2>
+
+## Install R packages from GitHub or GitLab
+
+The first step is to install and load the devtools package, available on CRAN.
+
+If you find any errors, it means you also need to install RTools.
+
+```{r echo=T, eval=F}
+install.packages("devtools")
+library(devtools)
+
+```
+
+You can then call the ***install_github*** function with "account_name/repository_name" as an argument to install the package from GitHub.
+
+## Install R packages from GitHub or GitLab
+
+```{r echo=T, eval=F}
+# Instalando el paquete ggplot2 desde GitHub
+install_github("tidyverse/ggplot2")
+
+```
+
+Note that if you don't want to load devtools every time you want to install a GitHub package, you can use ***devtools::install_github("account_name/repository_name")***, as the :: operator allows you to call functions from within a package without actually loading it .
+
+## Install R-Forge packages
+
+The R Forge project is a network of package development tools and repositories.
+
+For example, if you want to install the MPAgenomics package, specify in the repos argument of the install.packages function the URL of the R Forge project.
+
+The dependencies argument is used when repos is not NULL to specify whether dependencies for the package being installed should also be installed.
+
+```{r echo=T, eval=F}
+install.packages("MPAgenomics", repos = "http://R-Forge.R-project.org",
+                 dependencies = TRUE)
+
+```
+
+## **Install Bioconductor packages**
+
+Bioconductor is another project that hosts R tools and packages for analyzing biological data.
+
+First of all you have to install the BiocManager package.
+
+```{r echo=T, eval=F}
+install.packages("BiocManager")
+```
+
+Once installed, you can use the package install function.
+
+```{r echo=T, eval=F}
+# Installing the nanotatoR package
+
+BiocManager::install("nanotatoR")
+```
+
+## **Install Bioconductor packages**
+
+As with the CRAN packages, you can install multiple packages at once.
+
+```{r echo=T, eval=F}
+# Installing NBSplice and ncdfFlow packages
+
+BiocManager::install("NBSPlice", "ncdfFlow")
+```
+
+You can see the complete list of Bioconductor packages by typing BiocManager::available().
+
+For more information about the Bioconductor installation process, you can see the official reference on [Bioconductor packages](https://bioconductor.org/packages/release/bioc/).
+
+## Install R packages in Jupyter Notebook
+
+In case you use R in the "conda" environment with Jupyter Notebook and you need more R packages than those included as "Essentials", you can use the base function to install packages, but specifying the repos argument as in the following example:
+
+```{r echo=T, eval=F}
+install.packages("ggplot2", repos = "http://cran.es.r-project.org")
+```
+
+## Update R packages
+
+Upgrading packages in R can be tedious if you have to repeatedly reinstall packages when some have a newer version available.
+
+You can see the complete list of your outdated R packages with the ***old.packages()*** function.
+
+```{r echo=T, eval=F}
+old.packages()
+```
+
+You can update some of them manually with the install.packages function or by calling the ***update.packages*** function. If you set the ask argument to FALSE, you will prevent R from displaying popup messages.
+
+## Update R packages
+
+```{r echo=T, eval=F}
+update.packages()
+
+update.packages(ask = FALSE)
+```
+
+You can only update a package if it is not already loaded in memory.
+
+If you've already uploaded a package and want to update it, use the ***detach*** function as follows:
+
+```{r echo=T, eval=F}
+detach(package: package_name, unload = TRUE)
+```
+
+## List the functions of a package
+
+Once installed, you can get a list of all the features in the package. If the package is on CRAN, you will find PDF documentation of all functions within one page with the following structure: [https://cran.r-project.org/web/packages/package_name]{.underline}.
+
+Remember that you can access this documentation in HTML format with **?** or ***help(...)***.
+
+```{r echo=T, eval=F}
+help(package = ggplot2)
+```
+
+## List the functions of a package
+
+You can also use the ***lsf.str*** or ***ls*** commands to list all functions within an already loaded package.
+
+```{r echo=T, eval=F}
+library(ggplot2)
+ls("package:ggplot2") # Function names
+lsf.str("package:ggplot2") # Names with argument description
+```
+
+Another option is to write: package_name:: and a list will be displayed in RStudio as a drop-down menu.
+
+In the R GUI you will have to press the tabular button to display the functions on the screen, although it should be noted that if the package contains many functions not all of them will be displayed, as with the ggplot2 package:
+
+```{r echo=T,eval=F}
+#ggplot2:: + Tab button
+```
+
+## View the source code of a package's functions
+
+You might be interested in inspecting the source code of some functions. To do this you have several options:
+
+\- Call the function name in the console.
+
+\- Press Ctrl + left click or Cmd + left click on the function name (written in a script) when using RStudio.
+
+\- On the CRAN page of the package (or GitHub, R-forge, ...), you can download the file and manually inspect the code.
+
+If the function is written in Fortran, C, or a language other than R, you won't be able to see the code with the first and second methods.
+
+## Check if a package is installed
+
+It's common that you don't remember if you have any packages installed and don't want to waste time reinstalling them.
+
+To avoid this, you can use the ***require*** function.
+
+The main difference between ***require*** and ***library*** is that the former returns TRUE or FALSE and the latter returns an error if the package is not installed.
+
+## Check if a package is installed
+
+The ***require*** function was designed to be used inside other functions.
+
+```{r echo=T, eval=F}
+# If FALSE, install the package
+
+if (!require("ggplot2")) install.packages("ggplot2")
+```
+
+The following line of code will also return TRUE if the package is installed, or FALSE otherwise.
+
+```{r echo=T, eval=F}
+"ggplot2" %in% rownames(installed.packages())
+```
+
+## install.packages error: Unable to uninstall previous package
+
+If you encounter this error, it means that you might be using different versions of R on the same computer. The solutions are:
+
+Close all open R sessions, open R again and install the package.
+
+If the above doesn't work, check the error and go to the given address where the 00LOCK file is and delete it.
+
+Another option is to use the ***.libPaths()*** function, which returns the path where the libraries are installed and removes the offending package to do a clean install.
+
+## Can't install a package?
+
+Finally, it should be noted that if you are unable to install packages in R, it could be for several reasons:
+
+-   You are disconnected from the internet.
+
+-   package is no longer available. You can find old versions with: https://cran.r-project.org/src/contrib/Archive/Package_Name.
+
+-   You misspelled the package name. Remember that R is case sensitive.
+
+-   If Rtools are needed to build the package, you will need to install them first.
+
+## Can't install a package?
+
+-   Try closing and reopening R or try on another computer to see if the problem persists or is caused by your local settings.
+
+-   If nothing works, 🙏
+
+::: fragment
+```{r echo=T, eval=F}
+print("Thank you")
+```
+:::
