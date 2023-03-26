@@ -467,8 +467,8 @@
 </section>
 <section id="function-to-install-r-packages" class="slide level2">
 <h2>Function to install R packages</h2>
-<p>Once you’ve decided which package to install, simply call the <strong><em>install.packages</em></strong> function with the package name enclosed in quoted parentheses. As an example, let’s install the calendR package, which allows us to create monthly and yearly calendars, but you can try installing the package of your choice.</p>
-<p>After installation, you need to load the package if you want to access its features. To do this, you can use the <strong><em>library</em></strong> function specifying the package name with or without quotes.</p>
+<p>Once you’ve decided which package to install, simply call the <code>install.packages</code> function with the package name enclosed in quoted parentheses. As an example, let’s install the <code>calendR</code> package, which allows us to create monthly and yearly calendars, but you can try installing the package of your choice.</p>
+<p>After installation, you need to load the package if you want to access its features. To do this, you can use the <code>library</code> function specifying the package name with or without quotes.</p>
 <div class="fragment fade-in-then-out">
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"calendR"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(calendR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -476,12 +476,12 @@
 </section>
 <section id="function-to-install-r-packages-1" class="slide level2">
 <h2>Function to install R packages</h2>
-<p>Once loaded, you can use the help function or ? with the package name or the name of any function to see the documentation. You’ll also find useful examples to understand how the package works.</p>
+<p>Once loaded, you can use the <code>help</code> function or <code>?</code> with the package name or the name of any function to see the documentation. You’ll also find useful examples to understand how the package works.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Help the main function of the package</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">help</span>(<span class="st">"calendR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Also, in case it’s interesting, you can find out where the packages are installed by calling the .libPaths() function.</p>
+<p>Also, in case it’s interesting, you can find out where the packages are installed by calling the <code>.libPaths()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">.libPaths</span>() <span class="co"># Returns the installation directory</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -496,7 +496,7 @@
 <h2>Installing R packages from a zip</h2>
 <ul>
 <li class="fragment"><p>You may have downloaded a package in zip or tar.gz format.</p></li>
-<li class="fragment"><p>To install the package from a local zip file, simply call the <strong><em>install.packages</em></strong> function with the arguments repos = NULL and type = “source”. Note that the file path must not contain spaces.</p></li>
+<li class="fragment"><p>To install the package from a local zip file, simply call the <code>install.packages</code> function with the arguments <code>repos = NULL</code> and <code>type = "source"</code>. Note that the file path must not contain spaces.</p></li>
 </ul>
 <div class="fragment fade-in-then-out">
 <div class="cell">
@@ -507,7 +507,7 @@
 </section>
 <section id="installing-r-packages-from-a-zip-1" class="slide level2">
 <h2>Installing R packages from a zip</h2>
-<p>You can also first configure the framework with the <strong><em>setwd</em></strong> function in the folder where the package file was downloaded and then install the package by specifying the name of the zip or tar.gz file.</p>
+<p>You can also first configure the framework with the <code>setwd</code> function in the folder where the package file was downloaded and then install the package by specifying the name of the zip or tar.gz file.</p>
 <div class="fragment fade-in-then-out">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">setwd</span>(<span class="st">"file_path"</span>)</span>
@@ -519,7 +519,7 @@
 <section id="installing-r-packages-from-a-zip-2" class="slide level2">
 <h2>Installing R packages from a zip</h2>
 <p>The last option is to use the menu. In RStudio, go to <em>Tools → Install packages</em> and in the Install from option, choose Package Archive File (.zip; .tar.gz) and select your file. In the R GUI, go to <em>Packages → Install package(s) from local files</em>.</p>
-<p>If you have the zip hosted at some URL, you can use the install.packages.zip function of the installr package. Note that you can also install CRAN packages (even older versions) this way.</p>
+<p>If you have the zip hosted at some URL, you can use the <code>install.packages.zip</code> function of the <code>installr</code> package. Note that you can also install CRAN packages (even older versions) this way.</p>
 <div class="fragment fade-in-then-out">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(installr)</span>
@@ -530,7 +530,7 @@
 </section>
 <section id="install-multiple-packages-at-once" class="slide level2">
 <h2>Install multiple packages at once</h2>
-<p>If you need to install several packages at once without writing the same function over and over again, you can use the c() function inside the install.packages function. Note that you now need to use quotes to specify the package names.</p>
+<p>If you need to install several packages at once without writing the same function over and over again, you can use the <code>c()</code> function inside the <code>install.packages</code> function. Note that you now need to use quotes to specify the package names.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"ggplot2"</span>, <span class="st">"dplyr"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -547,18 +547,18 @@ In the following sections, you will learn how to install packages from other ava
 <section id="install-r-packages-from-github-or-gitlab" class="slide level2">
 <h2>Install R packages from GitHub or GitLab</h2>
 <p>GitHub is a well-known code sharing platform. If you go to the page, you can search for R packages by using the search bar and typing something like: “plot package language: R” if you want to search for plot packages.</p>
-<p>The “language:R” part is a web browser command to restrict results to R code repositories. Suppose you want to download the development version of the ggplot2 package from GitHub. The URL address will be as follows:</p>
+<p>The “language:R” part is a web browser command to restrict results to R code repositories. Suppose you want to download the development version of the <code>ggplot2</code> package from GitHub. The URL address will be as follows:</p>
 <p><a href="https://github.com/tidyverse/ggplot2" class="uri">https://github.com/tidyverse/ggplot2</a></p>
 </section>
 <section id="install-r-packages-from-github-or-gitlab-1" class="slide level2">
 <h2>Install R packages from GitHub or GitLab</h2>
-<p>The first step is to install and load the devtools package, available on CRAN.</p>
-<p>If you find any errors, it means you also need to install RTools.</p>
+<p>The first step is to install and load the <code>devtools</code> package, available on CRAN.</p>
+<p>If you find any errors, it means you also need to install <code>RTools</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">library</span>(devtools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can then call the <strong><em>install_github</em></strong> function with “account_name/repository_name” as an argument to install the package from GitHub.</p>
+<p>You can then call the <code>install_github</code> function with “account_name/repository_name” as an argument to install the package from GitHub.</p>
 </section>
 <section id="install-r-packages-from-github-or-gitlab-2" class="slide level2">
 <h2>Install R packages from GitHub or GitLab</h2>
@@ -566,13 +566,13 @@ In the following sections, you will learn how to install packages from other ava
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Instalando el paquete ggplot2 desde GitHub</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="fu">install_github</span>(<span class="st">"tidyverse/ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that if you don’t want to load devtools every time you want to install a GitHub package, you can use devtools::install_github(“account_name/repository_name”), as the :: operator allows you to call functions from within a package without actually loading it .</p>
+<p>Note that if you don’t want to load devtools every time you want to install a GitHub package, you can use <code>devtools::install_github("account_name/repository_name")</code>, as the :: operator allows you to call functions from within a package without actually loading it .</p>
 </section>
 <section id="install-r-forge-packages" class="slide level2">
 <h2>Install R-Forge packages</h2>
 <p>The R Forge project is a network of package development tools and repositories.</p>
-<p>For example, if you want to install the MPAgenomics package, specify in the repos argument of the install.packages function the URL of the R Forge project.</p>
-<p>The dependencies argument is used when repos is not NULL to specify whether dependencies for the package being installed should also be installed.</p>
+<p>For example, if you want to install the <code>MPAgenomics</code> package, specify in the <code>repos</code> argument of the <code>install.packages</code> function the URL of the R Forge project.</p>
+<p>The dependencies argument is used when <code>repos</code> is not NULL to specify whether dependencies for the package being installed should also be installed.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">install.packages</span>(<span class="st">"MPAgenomics"</span>, <span class="at">repos =</span> <span class="st">"http://R-Forge.R-project.org"</span>,</span>
 <span id="cb10-2"><a href="#cb10-2"></a>                 <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -581,11 +581,11 @@ In the following sections, you will learn how to install packages from other ava
 <section id="install-bioconductor-packages" class="slide level2">
 <h2><strong>Install Bioconductor packages</strong></h2>
 <p>Bioconductor is another project that hosts R tools and packages for analyzing biological data.</p>
-<p>First of all you have to install the BiocManager package.</p>
+<p>First of all you have to install the <code>BiocManager</code> package.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Once installed, you can use the package install function.</p>
+<p>Once installed, you can use the package <code>install</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Installing the nanotatoR package</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a></span>
@@ -600,12 +600,12 @@ In the following sections, you will learn how to install packages from other ava
 <span id="cb13-2"><a href="#cb13-2"></a></span>
 <span id="cb13-3"><a href="#cb13-3"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"NBSPlice"</span>, <span class="st">"ncdfFlow"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can see the complete list of Bioconductor packages by typing BiocManager::available().</p>
+<p>You can see the complete list of Bioconductor packages by typing <code>BiocManager::available()</code>.</p>
 <p>For more information about the Bioconductor installation process, you can see the official reference on <a href="https://bioconductor.org/packages/release/bioc/">Bioconductor packages</a>.</p>
 </section>
 <section id="install-r-packages-in-jupyter-notebook" class="slide level2">
 <h2>Install R packages in Jupyter Notebook</h2>
-<p>In case you use R in the “conda” environment with Jupyter Notebook and you need more R packages than those included as “Essentials”, you can use the base function to install packages, but specifying the repos argument as in the following example:</p>
+<p>In case you use R in the “conda” environment with Jupyter Notebook and you need more R packages than those included as “Essentials”, you can use the base function to install packages, but specifying the <code>repos</code> argument as in the following example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>, <span class="at">repos =</span> <span class="st">"http://cran.es.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -613,11 +613,11 @@ In the following sections, you will learn how to install packages from other ava
 <section id="update-r-packages" class="slide level2">
 <h2>Update R packages</h2>
 <p>Upgrading packages in R can be tedious if you have to repeatedly reinstall packages when some have a newer version available.</p>
-<p>You can see the complete list of your outdated R packages with the <strong><em>old.packages()</em></strong> function.</p>
+<p>You can see the complete list of your outdated R packages with the <code>old.packages()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">old.packages</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can update some of them manually with the install.packages function or by calling the update.packages function. If you set the ask argument to FALSE, you will prevent R from displaying popup messages.</p>
+<p>You can update some of them manually with the <code>install.packages</code> function or by calling the <code>update.packages</code> function. If you set the ask argument to FALSE, you will prevent R from displaying popup messages.</p>
 </section>
 <section id="update-r-packages-1" class="slide level2">
 <h2>Update R packages</h2>
@@ -627,7 +627,7 @@ In the following sections, you will learn how to install packages from other ava
 <span id="cb16-3"><a href="#cb16-3"></a><span class="fu">update.packages</span>(<span class="at">ask =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can only update a package if it is not already loaded in memory.</p>
-<p>If you’ve already uploaded a package and want to update it, use the detach function as follows:</p>
+<p>If you’ve already uploaded a package and want to update it, use the <code>detach</code> function as follows:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">detach</span>(package<span class="sc">:</span> package_name, <span class="at">unload =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -635,20 +635,20 @@ In the following sections, you will learn how to install packages from other ava
 <section id="list-the-functions-of-a-package" class="slide level2">
 <h2>List the functions of a package</h2>
 <p>Once installed, you can get a list of all the features in the package. If the package is on CRAN, you will find PDF documentation of all functions within one page with the following structure: <u>https://cran.r-project.org/web/packages/package_name</u>.</p>
-<p>Remember that you can access this documentation in HTML format with ? or help(…).</p>
+<p>Remember that you can access this documentation in HTML format with <code>?</code> or <code>help(…)</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">help</span>(<span class="at">package =</span> ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="list-the-functions-of-a-package-1" class="slide level2">
 <h2>List the functions of a package</h2>
-<p>You can also use the <strong><em>lsf.str</em></strong> or <strong><em>ls</em></strong> commands to list all functions within an already loaded package.</p>
+<p>You can also use the <code>lsf.str</code> or <code>ls</code> commands to list all functions within an already loaded package.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="fu">ls</span>(<span class="st">"package:ggplot2"</span>) <span class="co"># Function names</span></span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="fu">lsf.str</span>(<span class="st">"package:ggplot2"</span>) <span class="co"># Names with argument description</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Another option is to write: package_name:: and a list will be displayed in RStudio as a drop-down menu.</p>
+<p>Another option is to write: <code>package_name::</code> and a list will be displayed in RStudio as a drop-down menu.</p>
 <p>In the R GUI you will have to press the tabular button to display the functions on the screen, although it should be noted that if the package contains many functions not all of them will be displayed, as with the ggplot2 package:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">#ggplot2:: + Tab button</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -665,12 +665,12 @@ In the following sections, you will learn how to install packages from other ava
 <section id="check-if-a-package-is-installed" class="slide level2">
 <h2>Check if a package is installed</h2>
 <p>It’s common that you don’t remember if you have any packages installed and don’t want to waste time reinstalling them.</p>
-<p>To avoid this, you can use the <strong><em>require</em></strong> function.</p>
-<p>The main difference between <strong><em>require</em></strong> and <strong><em>library</em></strong> is that the former returns TRUE or FALSE and the latter returns an error if the package is not installed.</p>
+<p>To avoid this, you can use the <code>require</code> function.</p>
+<p>The main difference between <code>require</code> and <code>library</code> is that the former returns TRUE or FALSE and the latter returns an error if the package is not installed.</p>
 </section>
 <section id="check-if-a-package-is-installed-1" class="slide level2">
 <h2>Check if a package is installed</h2>
-<p>The <strong><em>require</em></strong> function was designed to be used inside other functions.</p>
+<p>The <code>require</code> function was designed to be used inside other functions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># If FALSE, install the package</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a></span>
@@ -685,15 +685,15 @@ In the following sections, you will learn how to install packages from other ava
 <h2>install.packages error: Unable to uninstall previous package</h2>
 <p>If you encounter this error, it means that you might be using different versions of R on the same computer. The solutions are:</p>
 <p>Close all open R sessions, open R again and install the package.</p>
-<p>If the above doesn’t work, check the error and go to the given address where the 00LOCK file is and delete it.</p>
-<p>Another option is to use the <strong><em>.libPaths()</em></strong> function, which returns the path where the libraries are installed and removes the offending package to do a clean install.</p>
+<p>If the above doesn’t work, check the error and go to the given address where the <code>00LOCK</code> file is and delete it.</p>
+<p>Another option is to use the <code>.libPaths()</code> function, which returns the path where the libraries are installed and removes the offending package to do a clean install.</p>
 </section>
 <section id="cant-install-a-package" class="slide level2">
 <h2>Can’t install a package?</h2>
 <p>Finally, it should be noted that if you are unable to install packages in R, it could be for several reasons:</p>
 <ul>
 <li class="fragment"><p>You are disconnected from the internet.</p></li>
-<li class="fragment"><p>package is no longer available. You can find old versions with: https://cran.r-project.org/src/contrib/Archive/Package_Name.</p></li>
+<li class="fragment"><p>package is no longer available. You can find old versions with: <em>https://cran.r-project.org/src/contrib/Archive/Package_Name</em>.</p></li>
 <li class="fragment"><p>You misspelled the package name. Remember that R is case sensitive.</p></li>
 <li class="fragment"><p>If Rtools are needed to build the package, you will need to install them first.</p></li>
 </ul>

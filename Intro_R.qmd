@@ -80,9 +80,9 @@ Let's install some packages ...
 
 ## Function to install R packages
 
-Once you've decided which package to install, simply call the ***install.packages*** function with the package name enclosed in quoted parentheses. As an example, let's install the **calendR** package, which allows us to create monthly and yearly calendars, but you can try installing the package of your choice.
+Once you've decided which package to install, simply call the `install.packages` function with the package name enclosed in quoted parentheses. As an example, let's install the `calendR` package, which allows us to create monthly and yearly calendars, but you can try installing the package of your choice.
 
-After installation, you need to load the package if you want to access its features. To do this, you can use the ***library*** function specifying the package name with or without quotes.
+After installation, you need to load the package if you want to access its features. To do this, you can use the `library` function specifying the package name with or without quotes.
 
 ::: {.fragment .fade-in-then-out}
 ``` r
@@ -93,14 +93,14 @@ library(calendR)
 
 ## Function to install R packages
 
-Once loaded, you can use the ***help*** function or **?** with the package name or the name of any function to see the documentation. You'll also find useful examples to understand how the package works.
+Once loaded, you can use the `help` function or `?` with the package name or the name of any function to see the documentation. You'll also find useful examples to understand how the package works.
 
 ```{r echo=T,eval=F}
 # Help the main function of the package
 help("calendR")
 ```
 
-Also, in case it's interesting, you can find out where the packages are installed by calling the ***.libPaths()*** function.
+Also, in case it's interesting, you can find out where the packages are installed by calling the `.libPaths()` function.
 
 ```{r echo=T, eval=F}
 .libPaths() # Returns the installation directory
@@ -118,7 +118,7 @@ In the R GUI, go to *Packages → Install package(s)...*, select a 'mirror' and 
 
 -   You may have downloaded a package in zip or tar.gz format.
 
--   To install the package from a local zip file, simply call the ***install.packages*** function with the arguments repos = NULL and type = "source". Note that the file path must not contain spaces.
+-   To install the package from a local zip file, simply call the `install.packages` function with the arguments `repos = NULL` and `type = "source"`. Note that the file path must not contain spaces.
 
 ::: {.fragment .fade-in-then-out}
 ```{r echo=T, eval=F}
@@ -130,7 +130,7 @@ install.packages("path\\package_name.extension",repos = NULL,
 
 ## Installing R packages from a zip
 
-You can also first configure the framework with the ***setwd*** function in the folder where the package file was downloaded and then install the package by specifying the name of the zip or tar.gz file.
+You can also first configure the framework with the `setwd` function in the folder where the package file was downloaded and then install the package by specifying the name of the zip or tar.gz file.
 
 ::: {.fragment .fade-in-then-out}
 ```{r echo=T, eval=F}
@@ -146,7 +146,7 @@ install.packages("path\\package_name.extension",repos = NULL,
 
 The last option is to use the menu. In RStudio, go to *Tools → Install packages* and in the Install from option, choose Package Archive File (.zip; .tar.gz) and select your file. In the R GUI, go to *Packages → Install package(s) from local files*.
 
-If you have the zip hosted at some URL, you can use the install.packages.zip function of the installr package. Note that you can also install CRAN packages (even older versions) this way.
+If you have the zip hosted at some URL, you can use the `install.packages.zip` function of the `installr` package. Note that you can also install CRAN packages (even older versions) this way.
 
 ::: {.fragment .fade-in-then-out}
 ```{r echo=T, eval=F}
@@ -160,7 +160,7 @@ install.packages.zip(
 
 ## Install multiple packages at once
 
-If you need to install several packages at once without writing the same function over and over again, you can use the ***c()*** function inside the ***install.packages*** function. Note that you now need to use quotes to specify the package names.
+If you need to install several packages at once without writing the same function over and over again, you can use the `c()` function inside the `install.packages` function. Note that you now need to use quotes to specify the package names.
 
 ```{r echo=T, eval=F}
 install.packages(c("ggplot2", "dplyr"))
@@ -179,15 +179,15 @@ In the following sections, you will learn how to install packages from other ava
 
 GitHub is a well-known code sharing platform. If you go to the page, you can search for R packages by using the search bar and typing something like: "plot package language: R" if you want to search for plot packages.
 
-The "language:R" part is a web browser command to restrict results to R code repositories. Suppose you want to download the development version of the ggplot2 package from GitHub. The URL address will be as follows:
+The "language:R" part is a web browser command to restrict results to R code repositories. Suppose you want to download the development version of the `ggplot2` package from GitHub. The URL address will be as follows:
 
 <https://github.com/tidyverse/ggplot2>
 
 ## Install R packages from GitHub or GitLab
 
-The first step is to install and load the devtools package, available on CRAN.
+The first step is to install and load the `devtools` package, available on CRAN.
 
-If you find any errors, it means you also need to install RTools.
+If you find any errors, it means you also need to install `RTools`.
 
 ```{r echo=T, eval=F}
 install.packages("devtools")
@@ -195,7 +195,7 @@ library(devtools)
 
 ```
 
-You can then call the ***install_github*** function with "account_name/repository_name" as an argument to install the package from GitHub.
+You can then call the `install_github` function with "account_name/repository_name" as an argument to install the package from GitHub.
 
 ## Install R packages from GitHub or GitLab
 
@@ -205,15 +205,15 @@ install_github("tidyverse/ggplot2")
 
 ```
 
-Note that if you don't want to load devtools every time you want to install a GitHub package, you can use ***devtools::install_github("account_name/repository_name")***, as the :: operator allows you to call functions from within a package without actually loading it .
+Note that if you don't want to load devtools every time you want to install a GitHub package, you can use `devtools::install_github("account_name/repository_name")`, as the :: operator allows you to call functions from within a package without actually loading it .
 
 ## Install R-Forge packages
 
 The R Forge project is a network of package development tools and repositories.
 
-For example, if you want to install the MPAgenomics package, specify in the repos argument of the install.packages function the URL of the R Forge project.
+For example, if you want to install the `MPAgenomics` package, specify in the `repos` argument of the `install.packages` function the URL of the R Forge project.
 
-The dependencies argument is used when repos is not NULL to specify whether dependencies for the package being installed should also be installed.
+The dependencies argument is used when `repos` is not NULL to specify whether dependencies for the package being installed should also be installed.
 
 ```{r echo=T, eval=F}
 install.packages("MPAgenomics", repos = "http://R-Forge.R-project.org",
@@ -225,13 +225,13 @@ install.packages("MPAgenomics", repos = "http://R-Forge.R-project.org",
 
 Bioconductor is another project that hosts R tools and packages for analyzing biological data.
 
-First of all you have to install the BiocManager package.
+First of all you have to install the `BiocManager` package.
 
 ```{r echo=T, eval=F}
 install.packages("BiocManager")
 ```
 
-Once installed, you can use the package install function.
+Once installed, you can use the package `install` function.
 
 ```{r echo=T, eval=F}
 # Installing the nanotatoR package
@@ -249,13 +249,13 @@ As with the CRAN packages, you can install multiple packages at once.
 BiocManager::install("NBSPlice", "ncdfFlow")
 ```
 
-You can see the complete list of Bioconductor packages by typing BiocManager::available().
+You can see the complete list of Bioconductor packages by typing `BiocManager::available()`.
 
 For more information about the Bioconductor installation process, you can see the official reference on [Bioconductor packages](https://bioconductor.org/packages/release/bioc/).
 
 ## Install R packages in Jupyter Notebook
 
-In case you use R in the "conda" environment with Jupyter Notebook and you need more R packages than those included as "Essentials", you can use the base function to install packages, but specifying the repos argument as in the following example:
+In case you use R in the "conda" environment with Jupyter Notebook and you need more R packages than those included as "Essentials", you can use the base function to install packages, but specifying the `repos` argument as in the following example:
 
 ```{r echo=T, eval=F}
 install.packages("ggplot2", repos = "http://cran.es.r-project.org")
@@ -265,13 +265,13 @@ install.packages("ggplot2", repos = "http://cran.es.r-project.org")
 
 Upgrading packages in R can be tedious if you have to repeatedly reinstall packages when some have a newer version available.
 
-You can see the complete list of your outdated R packages with the ***old.packages()*** function.
+You can see the complete list of your outdated R packages with the `old.packages()` function.
 
 ```{r echo=T, eval=F}
 old.packages()
 ```
 
-You can update some of them manually with the install.packages function or by calling the ***update.packages*** function. If you set the ask argument to FALSE, you will prevent R from displaying popup messages.
+You can update some of them manually with the `install.packages` function or by calling the `update.packages` function. If you set the ask argument to FALSE, you will prevent R from displaying popup messages.
 
 ## Update R packages
 
@@ -283,7 +283,7 @@ update.packages(ask = FALSE)
 
 You can only update a package if it is not already loaded in memory.
 
-If you've already uploaded a package and want to update it, use the ***detach*** function as follows:
+If you've already uploaded a package and want to update it, use the `detach` function as follows:
 
 ```{r echo=T, eval=F}
 detach(package: package_name, unload = TRUE)
@@ -293,7 +293,7 @@ detach(package: package_name, unload = TRUE)
 
 Once installed, you can get a list of all the features in the package. If the package is on CRAN, you will find PDF documentation of all functions within one page with the following structure: [https://cran.r-project.org/web/packages/package_name]{.underline}.
 
-Remember that you can access this documentation in HTML format with **?** or ***help(...)***.
+Remember that you can access this documentation in HTML format with `?` or `help(…)`.
 
 ```{r echo=T, eval=F}
 help(package = ggplot2)
@@ -301,7 +301,7 @@ help(package = ggplot2)
 
 ## List the functions of a package
 
-You can also use the ***lsf.str*** or ***ls*** commands to list all functions within an already loaded package.
+You can also use the `lsf.str` or `ls` commands to list all functions within an already loaded package.
 
 ```{r echo=T, eval=F}
 library(ggplot2)
@@ -309,7 +309,7 @@ ls("package:ggplot2") # Function names
 lsf.str("package:ggplot2") # Names with argument description
 ```
 
-Another option is to write: package_name:: and a list will be displayed in RStudio as a drop-down menu.
+Another option is to write: `package_name::` and a list will be displayed in RStudio as a drop-down menu.
 
 In the R GUI you will have to press the tabular button to display the functions on the screen, although it should be noted that if the package contains many functions not all of them will be displayed, as with the ggplot2 package:
 
@@ -333,13 +333,13 @@ If the function is written in Fortran, C, or a language other than R, you won't 
 
 It's common that you don't remember if you have any packages installed and don't want to waste time reinstalling them.
 
-To avoid this, you can use the ***require*** function.
+To avoid this, you can use the `require` function.
 
-The main difference between ***require*** and ***library*** is that the former returns TRUE or FALSE and the latter returns an error if the package is not installed.
+The main difference between `require` and `library` is that the former returns TRUE or FALSE and the latter returns an error if the package is not installed.
 
 ## Check if a package is installed
 
-The ***require*** function was designed to be used inside other functions.
+The `require` function was designed to be used inside other functions.
 
 ```{r echo=T, eval=F}
 # If FALSE, install the package
@@ -359,9 +359,9 @@ If you encounter this error, it means that you might be using different versions
 
 Close all open R sessions, open R again and install the package.
 
-If the above doesn't work, check the error and go to the given address where the 00LOCK file is and delete it.
+If the above doesn't work, check the error and go to the given address where the `00LOCK` file is and delete it.
 
-Another option is to use the ***.libPaths()*** function, which returns the path where the libraries are installed and removes the offending package to do a clean install.
+Another option is to use the `.libPaths()` function, which returns the path where the libraries are installed and removes the offending package to do a clean install.
 
 ## Can't install a package?
 
@@ -369,7 +369,7 @@ Finally, it should be noted that if you are unable to install packages in R, it 
 
 -   You are disconnected from the internet.
 
--   package is no longer available. You can find old versions with: https://cran.r-project.org/src/contrib/Archive/Package_Name.
+-   package is no longer available. You can find old versions with: *https://cran.r-project.org/src/contrib/Archive/Package_Name*.
 
 -   You misspelled the package name. Remember that R is case sensitive.
 
